@@ -1,0 +1,6 @@
+/* Glass container */
+
+function GreenTrash()
+{
+
+}

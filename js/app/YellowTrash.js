@@ -1,0 +1,6 @@
+/* Plastics container */
+
+function YellowTrash()
+{
+
+}

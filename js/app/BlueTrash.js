@@ -1,0 +1,6 @@
+/* Paper container */
+
+function BlueTrash()
+{
+
+}
