@@ -10,18 +10,18 @@ var gameStatus = 0;
 
 var GameStatus =
 {
-    MENU        : 1,
+    MENU               : 1,
     GAME_ONE    : 2,
-    GAME_TWO    : 3
+    GAME_TWO   : 3
 };
 
 var RecycleBins =
 {
-    BLUE    : 0,
-    YELLOW  : 1,
-    GREEN   : 2,
-    BROWN   : 3,
-    DEFAULT : 4
+    BLUE        : 0,
+    YELLOW      : 1,
+    GREEN       : 2,
+    BROWN       : 3,
+    DEFAULT     : 4
 };
 
 function Main()
@@ -33,9 +33,9 @@ function Main()
 
     document.body.appendChild(this.renderer.view);
 
-    this.renderer.view.style.position  = "absolute";
-	this.renderer.view.style.top       = "0px";
-	this.renderer.view.style.left      = "0px";
+    this.renderer.view.style.position      = "absolute";
+	this.renderer.view.style.top           = "0px";
+	this.renderer.view.style.left          = "0px";
 
     this.menu = new Menu(this.stage);
     this.stage.addChild(this.menu);
@@ -58,6 +58,6 @@ Main.prototype.update = function()
 
     this.renderer.render(this.stage);
     requestAnimFrame(this.update.bind(this));
-}
+};
 
 window.onload = init;

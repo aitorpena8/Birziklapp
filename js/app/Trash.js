@@ -14,7 +14,6 @@ function Trash(imageSource, x, y, recycleBin)
 
     this.interactive = true;
     this.buttonMode  = true;
-    console.log(this);
 }
 
 Trash.constructor = Trash;
