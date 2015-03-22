@@ -10,9 +10,9 @@ var gameStatus = 0;
 
 var GameStatus =
 {
-    MENU               : 1,
+    MENU        : 1,
     GAME_ONE    : 2,
-    GAME_TWO   : 3
+    GAME_TWO    : 3
 };
 
 var RecycleBins =
@@ -38,6 +38,7 @@ function Main()
 	this.renderer.view.style.left          = "0px";
 
     this.menu = new Menu(this.stage);
+    this.game = new Game();
     this.stage.addChild(this.menu);
 
     requestAnimFrame(this.update.bind(this));
@@ -49,8 +50,11 @@ Main.prototype.update = function()
     {
         case GameStatus.MENU:
             this.menu.visible = true;
+            this.game.visible = false;
             break;
         case GameStatus.GAME_ONE:
+            this.menu.visible = false;
+            this.game.visible = true;
             break;
         case GameStatus.GAME_TWO:
             break;

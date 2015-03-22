@@ -1,6 +1,7 @@
 function Game()
 {
-
+    PIXI.DisplayObjectContainer.call(this);
+    this.thrashes = [];
 }
 
 Game.constructor = Game;
