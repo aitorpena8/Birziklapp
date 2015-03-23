@@ -2,21 +2,21 @@
 
 function BrownTrash(x, y)
 {
-    this.textureSource = createRandomTexture();
+    this.textureSource = this.createRandomTexture();
     Trash.call(this, this.textureSource, x, y, RecycleBins.BROWN);
 }
 
 BrownTrash.constructor = BrownTrash;
 BrownTrash.prototype = Object.create(PIXI.Sprite.prototype);
 
-function createRandomTexture()
+BrownTrash.prototype.createRandomTexture = function()
 {
-
+    //TODO: Create the algorithm
     return "resources/images/sprites/bunny.png";
-}
+};
 
-function getBlueElements()
+BrownTrash.prototype.getElements = function()
 {
-
+    //TODO Get all BROWN TRASH RUBBISH from the database
     return 0;
-}
+};

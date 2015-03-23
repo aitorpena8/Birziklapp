@@ -2,21 +2,21 @@
 
 function BlueTrash(x, y)
 {
-    this.textureSource = createRandomTexture();
+    this.textureSource = this.createRandomTexture();
     Trash.call(this, this.textureSource, x, y, RecycleBins.BLUE);
 }
 
 BlueTrash.constructor = BlueTrash;
 BlueTrash.prototype = Object.create(Trash.prototype);
 
-function createRandomTexture()
+BlueTrash.prototype.createRandomTexture = function()
 {
-
+    //TODO: Create the algorithm
     return "resources/images/sprites/bunny.png";
-}
+};
 
-function getBlueElements()
+BlueTrash.prototype.getElements = function()
 {
     //TODO Get all BLUE TRASH RUBBISH from the database
     return 0;
-}
+};

@@ -1,7 +1,6 @@
 function Button(x, y, width, height, text)
 {
-    var texture = PIXI.Texture.fromImage("");
-    PIXI.Sprite.call(this, texture);
+    PIXI.DisplayObjectContainer.call(this);
 
     this.interactive = true;
     this.buttonMode  = true;
@@ -13,23 +12,22 @@ function Button(x, y, width, height, text)
 
     this.text = text;
 
-    this.overTexture = PIXI.Texture.fromImage("");
+    this.loadButton(this, width, height, text);
 }
 
 Button.constructor = Button;
-Button.prototype = Object.create(PIXI.Sprite.prototype);
+Button.prototype = Object.create(PIXI.DisplayObjectContainer.prototype);
 
-Button.prototype.onmouseover = function(data)
+Button.prototype.loadButton = function(cxt, width, height, text)
 {
-    this.setTexture(this.overTexture);
+    var textStyle  = {font: "bold italic "+ height / 1.5 + "px Arvo", fill: "#3e1707", align: "center", stroke: "#a4410e", strokeThickness: 4};
+
+    var buttonText = new PIXI.Text(text, textStyle);
+    var ninepatch  = new PIXI.NinePatch(width, height, "resources/images/nine_patch/yellow_button_0*.png", false);
+
+    buttonText.position.x = width / 2 - buttonText.width / 2;
+
+    cxt.addChild(ninepatch);
+    cxt.addChild(buttonText);
 };
 
-Button.prototype.onmouseout = function(data)
-{
-    this.setTexture(this.texture);
-};
-
-Button.prototype.setText = function(text)
-{
-    this.text = text;
-};
