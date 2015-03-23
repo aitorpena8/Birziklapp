@@ -33,7 +33,7 @@ function Main()
 {
     gameStatus      = GameStatus.MENU;
 
-    this.stage      = new PIXI.Stage(0x00BA1C, true);
+    this.stage      = new PIXI.Stage(0xFFFFFF, true);
     this.renderer   = PIXI.autoDetectRenderer(mWidth, mHeight, null);
 
     document.body.appendChild(this.renderer.view);
