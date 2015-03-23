@@ -1,8 +1,8 @@
 function BinsContainer(x, y, width, height)
 {
     PIXI.DisplayObjectContainer.call(this);
-    this.x      = x;
-    this.y      = y;
+    this.position.x      = x;
+    this.position.y      = y;
     this.width  = width;
     this.height = height;
 
