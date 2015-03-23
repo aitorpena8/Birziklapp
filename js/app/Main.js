@@ -1,7 +1,12 @@
-var main = null;
+var main    = null;
+
+var mWidth   = null;
+var mHeight  = null;
 
 function init()
 {
+    mWidth   = window.innerWidth;
+    mHeight  = window.innerHeight;
     if(main === null)
         main = new Main();
 }
@@ -29,7 +34,7 @@ function Main()
     gameStatus      = GameStatus.MENU;
 
     this.stage      = new PIXI.Stage(0x00BA1C, true);
-    this.renderer   = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight, null);
+    this.renderer   = PIXI.autoDetectRenderer(mWidth, mHeight, null);
 
     document.body.appendChild(this.renderer.view);
 
