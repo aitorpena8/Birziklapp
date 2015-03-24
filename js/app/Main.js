@@ -3,11 +3,13 @@ var main    = null;
 var mWidth   = null;
 var mHeight  = null;
 
+var bins = [];
+
 function init()
 {
     mWidth   = window.innerWidth;
     mHeight  = window.innerHeight;
-    if(main === null)
+    if(!main)
         main = new Main();
 }
 
@@ -23,11 +25,11 @@ var GameStatus =
 
 var RecycleBins =
 {
-    BLUE        : 0,
-    YELLOW      : 1,
-    GREEN       : 2,
-    BROWN       : 3,
-    DEFAULT     : 4
+    BLUE        : 1,
+    YELLOW      : 2,
+    GREEN       : 3,
+    BROWN       : 4,
+    DEFAULT     : 5
 };
 
 function Main()
@@ -43,9 +45,12 @@ function Main()
 	this.renderer.view.style.top           = "0px";
 	this.renderer.view.style.left          = "0px";
 
-    this.menu       = new Menu();
-    this.game       = new Game();
-    this.gameOver   = new GameOver();
+    if(!this.menu)
+        this.menu       = new Menu();
+    if(!this.game)
+        this.game       = new Game();
+    if(!this.gameOver)
+        this.gameOver   = new GameOver();
 
     this.stage.addChild(this.menu);
     this.stage.addChild(this.game);

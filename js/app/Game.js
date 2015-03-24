@@ -3,8 +3,10 @@ function Game()
     PIXI.DisplayObjectContainer.call(this);
     this.trashes = [];
 
-    var width = 50;
-    var height = 200;
+    this.score = 0;
+
+    var width = mWidth / 8;
+    var height = mHeight;
     var x = mWidth - width;
     var y = mHeight / 2 - height / 2;
 
@@ -25,4 +27,14 @@ Game.prototype   = Object.create(PIXI.DisplayObjectContainer.prototype);
 Game.prototype.update = function()
 {
 
+};
+
+Game.prototype.resetScore = function()
+{
+    this.score = 0;
+};
+
+Game.prototype.addScore = function(score)
+{
+    this.score += score;
 };

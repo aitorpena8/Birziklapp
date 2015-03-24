@@ -1,7 +1,7 @@
 /* The parent class for every rubbis.
 Here goes all the functionalities for drag and drop and creation*/
 
-function Trash(imageSource, x, y, recycleBin)
+function Trash(imageSource, x, y, id)
 {
     var texture = PIXI.Texture.fromImage(imageSource);
     PIXI.Sprite.call(this, texture);
@@ -12,8 +12,11 @@ function Trash(imageSource, x, y, recycleBin)
     this.anchor.x = 0.5;
     this.anchor.y = 0.5;
 
+    this.id = id;
+
     this.interactive = true;
     this.buttonMode  = true;
+
 }
 
 Trash.constructor = Trash;
@@ -57,5 +60,16 @@ Trash.prototype.mouseup = Trash.prototype.mouseupoutside = Trash.prototype.touch
     // set the interaction data to null
     this.data = null;
 
+    //TODO: if this.x > window width < binscontainer offset
+    for(key in bins)
+    {
+        if(COLLIDER.checkCollision(this, bins[key]))
+        {
+            main.game.timer.resetTimer();
+            //TODO: create new trash, set it at initial position and add score
+            return;
+        }
+    }
+    //TODO: Set at initial position
 
 };
