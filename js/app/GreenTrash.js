@@ -7,7 +7,7 @@ function GreenTrash(x, y)
 }
 
 GreenTrash.constructor = GreenTrash;
-GreenTrash.prototype = Object.create(PIXI.Sprite.prototype);
+GreenTrash.prototype = Object.create(Trash.prototype);
 
 GreenTrash.prototype.createRandomTexture = function()
 {

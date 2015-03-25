@@ -14,9 +14,6 @@ function Trash(imageSource, x, y, id)
 
     this.id = id;
 
-    this.interactive = true;
-    this.buttonMode  = true;
-
 }
 
 Trash.constructor = Trash;
@@ -67,9 +64,15 @@ Trash.prototype.mouseup = Trash.prototype.mouseupoutside = Trash.prototype.touch
         {
             main.game.timer.resetTimer();
             //TODO: create new trash, set it at initial position and add score
+            this.position.x = mWidth / 2;
+            this.position.y = mHeight / 2;
+
+            main.game.addScore(1);
+            main.game.randomTrash();
+
             return;
         }
     }
-    //TODO: Set at initial position
+    //TODO: Set at initial position and decrease life
 
 };

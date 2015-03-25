@@ -11,7 +11,10 @@ BlueTrash.prototype = Object.create(Trash.prototype);
 
 BlueTrash.prototype.createRandomTexture = function()
 {
+    var myItems = this.getElements();
+
     //TODO: Create the algorithm
+
     return "resources/images/sprites/bunny.png";
 };
 

@@ -7,7 +7,7 @@ function DefaultTrash(x, y)
 }
 
 DefaultTrash.constructor = DefaultTrash;
-DefaultTrash.prototype = Object.create(PIXI.Sprite.prototype);
+DefaultTrash.prototype = Object.create(Trash.prototype);
 
 DefaultTrash.prototype.createRandomTexture = function()
 {

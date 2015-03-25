@@ -17,22 +17,24 @@ Timer.prototype = Object.create(PIXI.Text.prototype);
 
 Timer.prototype.resetTimer = function()
 {
-    timerCount = 5;
+    timerCount = 6;
 };
 
 Timer.prototype.decreaseSeconds = function(ctx)
 {
-    if(timerCount > 0)
+    if(gameStatus === GameStatus.GAME_ONE)
     {
-        if(gameStatus == GameStatus.GAME_ONE)
+        if(timerCount > 0)
         {
             timerCount --;
             ctx.setText(timerCount);
         }
-    }
-    else
-    {
-        // TODO: GAME_OVER
-        gameStatus = GameStatus.GAME_OVER;
+        else
+        {
+            // TODO: GAME_OVER
+            main.gameOver.setScore(main.game.score);
+            gameStatus = GameStatus.GAME_OVER;
+            this.resetTimer();
+        }
     }
 };

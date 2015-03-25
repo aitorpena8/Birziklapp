@@ -7,7 +7,7 @@ function BrownTrash(x, y)
 }
 
 BrownTrash.constructor = BrownTrash;
-BrownTrash.prototype = Object.create(PIXI.Sprite.prototype);
+BrownTrash.prototype = Object.create(Trash.prototype);
 
 BrownTrash.prototype.createRandomTexture = function()
 {
