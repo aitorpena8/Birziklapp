@@ -84,10 +84,10 @@ $(document).ready(function () {
         console.log(listaC);
         console.log(Object.keys(lista).length);
 
-        var out1 = JSON.stringify(lista);
-        $('#res1').text(out1);
+        var out1 = JSON.stringify(lista,null,'\t');
+        $('#res1').text(utf8_encode(out1));
 
-        var out2 = JSON.stringify(listaC);
+        var out2 = JSON.stringify(listaC,null,'\t');
         $('#res2').text(out2);
 
         var out3 = JSON.stringify(lang,null,'\t');

@@ -3,24 +3,49 @@
 
 
 <html>
-<head></head>
+
+<head>
+    <title>Ayuda</title>
+
+</head>
+
 <body>
     <header>
-     <form name="seachTrash">
-      <input type="search" name="searchTrashById"  id="searchTrashById">
-      <select>
-          <option value="">Residuo</option>
-          <option value="">Residuo</option>
+        <form name="seachTrash">
+           <div class="ui-widget">
+            <input type="search" name="searchTrashById" id="searchTrashById" placeholder="Buscar">
 
-      </select>
-      </form>
-      </header>
+            </div>
+            <select id="selectContainer" name="selectContainer">
+                <option value="">Residuo</option>
 
-        <nav>
-            <ul>
-                <li></li>
-            </ul>
-        </nav>
+            </select>
+        </form>
+    </header>
 
-</body>
+    <nav>
+        <ul>
+            <li></li>
+        </ul>
+    </nav>
+
+    <section>
+        <table id="tableTrash" name="tableTrash">
+            <tbody>
+
+
+            </tbody>
+
+        </table>
+
+
+    </section>
+
+    <script type="text/javascript" src="../js/vendor/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../js/vendor/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/vendor/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="../js/app/ayuda.js"></script>
+
+s</body>
+
 </html>
