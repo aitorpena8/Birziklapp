@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Cargar de CSV</title>
+    <meta charset="utf-8">
+</head>
+
+<body>
+
+    <form>
+        <div>
+            <input type="text" id="url" value="../rsrc/listadoResiduosContenedor.csv">
+            <input type="button" id="cargar" value="cargar">
+        </div>
+        <br/>
+        <div>
+            <label for="res1">JSON Residuo-Contenedor</label>
+            <textarea id="res1" cols="50" rows="10">
+            </textarea>
+        </div>
+        <div>
+            <label for="res2">JSON Contenedor-Residuo</label>
+
+            <textarea id="res2" cols="50" rows="10">
+            </textarea>
+        </div>
+        <div>
+
+            <label for="res2">JSON Idioma</label>
+
+            <textarea id="res3" cols="50" rows="10">
+            </textarea>
+        </div>
+    </form>
+
+
+    <script type="text/javascript" src="../js/vendor/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../js/vendor/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/vendor/jquery.ui.touch-punch.min.js"></script>
+    <script type="text/javascript" src="../js/app/net.js"></script>
+
+    <script type="text/javascript" src="../js/app/loadFromCSV.js"></script>
+</body>
+
+</html>

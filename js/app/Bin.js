@@ -5,6 +5,10 @@ function Bin(x, y, imageSource, id)
     this.position.x  = x;
     this.position.y  = y;
     this.id = id;
+
+    //TODO: Set width
+
+    bins.push(this);
 }
 
 Bin.constructor = Bin;
