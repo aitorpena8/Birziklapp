@@ -6,6 +6,9 @@ function Trash(imageSource, x, y, id)
     var texture = PIXI.Texture.fromImage(imageSource);
     PIXI.Sprite.call(this, texture);
 
+    this.initialX = x;
+    this.initialY = y;
+
     this.position.x = x;
     this.position.y = y;
 
@@ -14,6 +17,9 @@ function Trash(imageSource, x, y, id)
 
     this.id = id;
 
+    this.scale.y = this.scale.x = this.initialScale = 0.4;
+    if(mHeight >= 512)
+        this.scale.y = this.scale.x = this.initialScale = 0.2;
 }
 
 Trash.constructor = Trash;
@@ -33,7 +39,7 @@ Trash.prototype.mousedown = Trash.prototype.touchstart = function(data)
     // The reason for this is because of multitouch
     // we want to track the movement of this particular touch
     this.data = data;
-    this.scale.x = this.scale.y = 1.5;
+    this.scale.x = this.scale.y += 0.1;
     this.dragging = true;
 };
 
@@ -52,7 +58,7 @@ Trash.prototype.mousemove = Trash.prototype.touchmove = function(data)
 Trash.prototype.mouseup = Trash.prototype.mouseupoutside = Trash.prototype.touchend = Trash.prototype.touchendoutside = function(data)
 {
     this.alpha = 1;
-    this.scale.x = this.scale.y = 1;
+    this.scale.x = this.scale.y = this.initialScale;
     this.dragging = false;
     // set the interaction data to null
     this.data = null;
@@ -64,8 +70,8 @@ Trash.prototype.mouseup = Trash.prototype.mouseupoutside = Trash.prototype.touch
         {
             main.game.timer.resetTimer();
             //TODO: create new trash, set it at initial position and add score
-            this.position.x = mWidth / 2;
-            this.position.y = mHeight / 2;
+            this.position.x = this.initialX;
+            this.position.y = this.initialY;
 
             main.game.addScore(1);
             main.game.randomTrash();
@@ -74,5 +80,9 @@ Trash.prototype.mouseup = Trash.prototype.mouseupoutside = Trash.prototype.touch
         }
     }
     //TODO: Set at initial position and decrease life
+
+    this.position.x = this.initialX;
+    this.position.y = this.initialY;
+    main.game.addScore(-1);
 
 };
