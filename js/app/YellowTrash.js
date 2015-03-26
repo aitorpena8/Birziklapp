@@ -12,7 +12,7 @@ YellowTrash.prototype = Object.create(Trash.prototype);
 YellowTrash.prototype.createRandomTexture = function()
 {
     //TODO: Create the algorithm
-    return "resources/images/sprites/bunny.png";
+    return "resources/images/sprites/trash/yellow.png";
 };
 
 YellowTrash.prototype.getElements = function()

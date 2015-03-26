@@ -8,11 +8,11 @@ function BinsContainer(x, y, width, height)
 
     var offset = mHeight / 100;
 
-    this.yellow  = new Bin(0, offset, "resources/images/sprites/yellow.png", RecycleBins.YELLOW);
-    this.blue    = new Bin(0, height/5 + offset, "resources/images/sprites/blue.png", RecycleBins.BLUE);
-    this.green   = new Bin(0, (height/5 + offset) * 2, "resources/images/sprites/green.png", RecycleBins.GREEN);
-    this.brown   = new Bin(0, (height/5 + offset) * 3, "resources/images/sprites/brown.png", RecycleBins.BROWN);
-    this.default = new Bin(0, (height/5 + offset) * 4, "resources/images/sprites/default.png", RecycleBins.DEFAULT);
+    this.yellow  = new Bin(0, offset, "resources/images/sprites/containers/yellow_0.25.png", RecycleBins.YELLOW);
+    this.blue    = new Bin(0, height/5 + offset, "resources/images/sprites/containers/blue_0.25.png", RecycleBins.BLUE);
+    this.green   = new Bin(0, (height/5 + offset) * 2, "resources/images/sprites/containers/green_0.25.png", RecycleBins.GREEN);
+    this.brown   = new Bin(0, (height/5 + offset) * 3, "resources/images/sprites/containers/brown_0.25.png", RecycleBins.BROWN);
+    this.default = new Bin(0, (height/5 + offset) * 4, "resources/images/sprites/containers/default_0.25.png", RecycleBins.DEFAULT);
 
     this.addChild(this.yellow);
     this.addChild(this.blue);

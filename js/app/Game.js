@@ -40,7 +40,7 @@ function Game()
     this.timer = new Timer(mWidth / 2, 50);
     this.addChild(this.timer);
 
-    this.scoreText = new PIXI.Text(this.score, {font: "bold italic 6em Arvo", fill: "#3e1707", align: "center", stroke: "#a4410e", strokeThickness: 7});
+    this.scoreText = new PIXI.Text(this.score, {font: "bold italic " + mHeight / 6 +"px Arvo", fill: "#3e1707", align: "center", stroke: "#a4410e", strokeThickness: 7});
     this.scoreText.position.x = (mWidth  - this.scoreText.width) / 2;
     this.scoreText.position.y = mHeight - mHeight / 4;
     this.addChild(this.scoreText);
@@ -75,7 +75,6 @@ Game.prototype.randomTrash = function()
     }
 
     var index = Math.floor(Math.random() * this.trashes.length);
-    console.log(index);
 
     this.trashes[index].createRandomTexture();
     this.trashes[index].visible = true;

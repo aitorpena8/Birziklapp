@@ -4,7 +4,7 @@ var timerCount = 0;
 function Timer(x, y)
 {
     timerCount = 5;
-    PIXI.Text.call(this, timerCount, {font: "bold italic 6em Arvo", fill: "#3e1707", align: "center", stroke: "#a4410e", strokeThickness: 7});
+    PIXI.Text.call(this, timerCount, {font: "bold italic " + mHeight / 6 + "px Arvo", fill: "#3e1707", align: "center", stroke: "#a4410e", strokeThickness: 7});
     this.position.x = x;
     this.position.y = y;
     this.resetTimer();
@@ -33,8 +33,8 @@ Timer.prototype.decreaseSeconds = function(ctx)
         {
             // TODO: GAME_OVER
             main.gameOver.setScore(main.game.score);
+            ctx.resetTimer();
             gameStatus = GameStatus.GAME_OVER;
-            this.resetTimer();
         }
     }
 };

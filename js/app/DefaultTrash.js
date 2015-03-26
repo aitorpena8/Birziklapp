@@ -12,7 +12,7 @@ DefaultTrash.prototype = Object.create(Trash.prototype);
 DefaultTrash.prototype.createRandomTexture = function()
 {
     //TODO: Create the algorithm
-    return "resources/images/sprites/bunny.png";
+    return "resources/images/sprites/trash/default.png";
 };
 
 DefaultTrash.prototype.getElements = function()

@@ -15,7 +15,7 @@ BlueTrash.prototype.createRandomTexture = function()
 
     //TODO: Create the algorithm
 
-    return "resources/images/sprites/bunny.png";
+    return "resources/images/sprites/trash/blue.png";
 };
 
 BlueTrash.prototype.getElements = function()
