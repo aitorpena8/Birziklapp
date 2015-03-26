@@ -24,10 +24,12 @@ $(document).ready(function () {
 
     function normalizeStringArr(arr) {
         var i;
+        var outArr=[];
         for (i in arr) {
-            arr[i] = normalizeString(arr[i]);
+            arr[i]=arr[i].trim();
+            outArr[i] = normalizeString(arr[i]);
         }
-        return arr;
+        return outArr;
     }
 
 
@@ -85,7 +87,7 @@ $(document).ready(function () {
         console.log(Object.keys(lista).length);
 
         var out1 = JSON.stringify(lista,null,'\t');
-        $('#res1').text(utf8_encode(out1));
+        $('#res1').text(out1);
 
         var out2 = JSON.stringify(listaC,null,'\t');
         $('#res2').text(out2);
@@ -98,7 +100,7 @@ $(document).ready(function () {
     $("#cargar").on('click',function(){
         var url=$("#url").val();
     console.log(url)
-    APP.net.peticion(url, null, parsearCSV);
+    APP.net.peticion(url, true,null, parsearCSV);
     });
 
 });
