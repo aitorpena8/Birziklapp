@@ -4,14 +4,11 @@ $(document).ready(function () {
     APP.net = (function () {
         console.log("net cargado");
 
-        var peticion = function(url,cnt,cb) {
+        var peticion = function(url,async,cnt,cb) {
             (cnt !== null || cnt !== 0) ? cnt : 1 ;
             $.ajax({
-
                 url: url,
-                data: {
-                    numero: cnt
-                },
+                async: async,
                 type: 'POST',
                 dataType: 'text',
                 success: function (json) {
@@ -35,3 +32,4 @@ $(document).ready(function () {
 
     })();
 });
+

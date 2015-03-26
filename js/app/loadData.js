@@ -3,102 +3,63 @@ var APP = APP || {};
 $(document).ready(function () {
     "use strict";
 
+    function loadContainerTrash(data) {
+        APP.data.containerTrash = {};
+        APP.data.containerTrash = JSON.parse(data);
+        console.log("containerTrash loaded");
+
+    }
 
 
-    APP.data = (function () {
+    function loadTrashContainer(data) {
+        APP.data.trashContainer = {};
+        APP.data.trashContainer = JSON.parse(data);
+        console.log("trashContainer loaded");
+
+    }
+
+    function loadLanguage(data) {
+
+        APP.languageText[APP.languageCode] = JSON.parse(data);
+        console.log("language loaded");
+
+    }
+
+    function loadData() {
+
+        APP.data = {};
+
+        var rsrcURI = '../rsrc/';
+        var containerTrashFile = 'containerTrash.json';
+        var trashContainerFile = 'trashContainer.json';
+
+        var containerTrashURI = rsrcURI + containerTrashFile;
+        var trashContainerURI = rsrcURI + trashContainerFile;
+
+        var langPrefix = 'language_';
 
 
-
-        function parsearCSV(datos) {
-
-            function normalizeString(str) {
-
-                var i = str.indexOf("(");
-                if (i !== -1) {
-                    str = str.substr(0, i);
-                }
-                str = str.trim();
-                str = str.toLowerCase();
-                str = str.replace(/\s|,/g, "_");
-                str = str.replace(/á/g, "a");
-                str = str.replace(/é/g, "e");
-                str = str.replace(/í/g, "i");
-                str = str.replace(/ó/g, "o");
-                str = str.replace(/ú/g, "u");
-                str = str.replace(/ñ/g, "n");
-                str = str.replace(/[.]/g, "");
-                return str;
-            }
-
-            function normalizeStringArr(arr) {
-                var i;
-                for (i in arr) {
-                    arr[i] = normalizeString(arr[i]);
-                }
-                return arr;
-            }
-
-
-            var lines = datos.split('\n');
-            var lista = {},
-                listaC = {},
-                lang = {};
-
-
-            var values;
-            var n = 0;
-            for (var i = 0; i < lines.length; i++) {
-
-                values = lines[i].split(';');
-                // console.log(values);
-
-                if (values.length > 1 && values[0] !== "") {
-                    var trash = values[0].trim();
-                    var trashN = normalizeString(values[0]);
-                    if (trashN !== "") {
-                        lang[trashN] = trash;
-                        var elemento = {};
-                        // elemento["trash"] = trash;
-                        var containersArr = values[1].split("-");
-                        if (containersArr.length > 0) {
-                            var containersArrN = normalizeStringArr(containersArr);
-                            elemento.containers = containersArrN;
-                            for (var c in containersArrN) {
-                                var containerN = containersArrN[c];
-                                if (!listaC[containerN]) {
-                                    listaC[containerN] = [];
-                                    lang[containerN] = containersArr[c];
-                                }
-
-                                listaC[containerN].push(trashN);
-                            }
-                        }
-                        if (values.length > 2) {
-                            var expl = values[2].trim();
-                            if (expl !== "") {
-                                //elemento["expl"] = expl;
-                                lang[trashN + "_expl"] = expl;
-                            }
-                        }
-                        lista[trashN] = elemento;
-                        n++;
-
-                    } else {
-                        console.log(values);
-
-                    }
-                }
-            }
-
+        if (!APP.languageCode) {
+            APP.languageCode = 'es';
+            APP.languageText = {
+                'es': {}
+            };
 
         }
-        return {
-            trashContainers: lista,
-            containersTrash: listaC,
-            language: lang
+        var langURI = rsrcURI + langPrefix + APP.languageCode + '.json';
 
 
-        };
+        APP.net.peticion(containerTrashURI, false, null, loadContainerTrash);
+        console.log("a");
+        APP.net.peticion(trashContainerURI, false, null, loadTrashContainer);
+        APP.net.peticion(langURI, false, null, loadLanguage);
+        console.log("load data end");
+    }
 
-    })();
+    loadData();
+
+
+
+
+
 });
