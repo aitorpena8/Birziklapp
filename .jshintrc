@@ -4,6 +4,7 @@
     "browser": true,
     "jquery": true,
     "globals": {
-        "document" : true,
-        "$" : true}
+        "document": true,
+        "$": true
+    }
 }
