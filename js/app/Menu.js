@@ -15,9 +15,9 @@ function Menu()
     this.logo.position.y = mHeight / 100;
 
 
-    this.startButton        = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/buttons/PLAY_0.25.png"));
-    this.statisticsButton   = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/buttons/SCORE_0.25.png"));
-    this.helpButton         = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/buttons/HELP_0.25.png"));
+    this.startButton        = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/buttons/play_256.png"));
+    this.statisticsButton   = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/buttons/score_256.png"));
+    this.helpButton         = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/buttons/help_256.png"));
 
     if(mHeight >= 512)
         this.startButton.scale.x = this.startButton.scale.y = this.statisticsButton.scale.x = this.statisticsButton.scale.y = this.helpButton.scale.x = this.helpButton.scale.y = 0.8;
