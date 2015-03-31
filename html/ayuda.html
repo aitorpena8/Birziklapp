@@ -5,48 +5,56 @@
 <html>
 
 <head>
+    <meta charset="utf-8">
     <title>Ayuda</title>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="../css/vendor/jquery-ui.css">
+    <link rel="stylesheet" href="../css/app/style.css">
+
 
 
 </head>
 
 <body>
-    <header>
-        <form name="seachTrash">
-            <div class="ui-widget">
-                <input type="search" name="searchTrashById" id="searchTrashById" placeholder="Buscar">
-            </div>
-            <select id="selectContainer" name="selectContainer">
-                <option value="0">Contenedor</option>
+    <div id="wrapper">
+        <header class="searchHeader">
+            <form name="seachTrash">
+                <div class="ui-widget">
+                    <input type="text" name="searchTrashById" id="searchTrashById" placeholder="Buscar">
+                </div>
+                <select id="selectContainer" name="selectContainer">
+                    <option value="0">Contenedor</option>
 
-            </select>
-        </form>
-    </header>
+                </select>
+                <input id="reset" type="reset" value="Borrar">
+            </form>
+        </header>
 
-    <nav>
-        <ul id="alpIndex">
-        </ul>
+        <nav id="alpIndex">
+            <ul>
+            </ul>
 
-    </nav>
+        </nav>
 
-    <section>
-        <table id="tableTrash" name="tableTrash">
-            <tbody>
-
-
-            </tbody>
-
-        </table>
+        <section id="tableTrashSection">
+            <table id="tableTrash" name="tableTrash">
+                <tbody>
 
 
-    </section>
+                </tbody>
+
+            </table>
+
+
+        </section>
+    </div>
 
     <script type="text/javascript" src="../js/vendor/jquery-1.11.2.min.js"></script>
     <script type="text/javascript" src="../js/vendor/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../js/vendor/jquery.ui.touch-punch.min.js"></script>
-    <script type="text/javascript" src="../js/app/net.js"></script>
-    <script type="text/javascript" src="../js/app/loadData.js"></script>
+    <script type="text/javascript" src="../js/app/data/trashContainer.js"></script>
+    <script type="text/javascript" src="../js/app/data/containerTrash.js"></script>
+    <script type="text/javascript" src="../js/app/data/language_es.js"></script>
+    <script type="text/javascript" src="../js/app/data/language_eu.js"></script>
     <script type="text/javascript" src="../js/app/i18n.js"></script>
     <script type="text/javascript" src="../js/app/ayuda.js"></script>
 
