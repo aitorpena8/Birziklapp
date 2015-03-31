@@ -24,9 +24,9 @@ $(document).ready(function () {
 
     function normalizeStringArr(arr) {
         var i;
-        var outArr=[];
+        var outArr = [];
         for (i in arr) {
-            arr[i]=arr[i].trim();
+            arr[i] = arr[i].trim();
             outArr[i] = normalizeString(arr[i]);
         }
         return outArr;
@@ -36,13 +36,19 @@ $(document).ready(function () {
     function parsearCSV(datos) {
 
         var lines = datos.split('\n');
-        var lista = {}, listaC = {}, lang = {};
+        var lista = {},
+            listaC = {},
+            lang = {};
 
         var values;
         var n = 0;
+       // var cont = 0;
+
         for (var i = 0; i < lines.length; i++) {
 
             values = lines[i].split(';');
+            var rand = Math.random();
+
             // console.log(values);
 
             if (values.length > 1 && values[0] !== "") {
@@ -51,7 +57,7 @@ $(document).ready(function () {
                 if (trashN != "") {
                     lang[trashN] = trash;
                     var elemento = {};
-                   // elemento["trash"] = trash;
+                    // elemento["trash"] = trash;
                     var containersArr = values[1].split("-");
                     if (containersArr.length > 0) {
                         var containersArrN = normalizeStringArr(containersArr);
@@ -61,19 +67,27 @@ $(document).ready(function () {
                             if (!listaC[containerN]) {
                                 listaC[containerN] = [];
                                 lang[containerN] = containersArr[c];
+                               // cont = 0;
                             }
 
-                            listaC[containerN].push(trashN);
+                           // if (cont < 10 && rand < 0.5) {
+                                listaC[containerN].push(trashN);
+                            //}
+
                         }
                     }
                     if (values.length > 2) {
                         var expl = values[2].trim();
                         if (expl !== "") {
                             //elemento["expl"] = expl;
-                            lang[trashN+"_expl"]=expl;
+                            lang[trashN + "_expl"] = expl;
                         }
                     }
-                    lista[trashN] = elemento;
+                    //if (cont < 10 && rand < 0.5) {
+                        lista[trashN] = elemento;
+                      /*  cont++;
+                    }*/
+
                     n++;
 
                 } else {
@@ -86,21 +100,21 @@ $(document).ready(function () {
         console.log(listaC);
         console.log(Object.keys(lista).length);
 
-        var out1 = JSON.stringify(lista,null,'\t');
+        var out1 = JSON.stringify(lista, null, '\t');
         $('#res1').text(out1);
 
-        var out2 = JSON.stringify(listaC,null,'\t');
+        var out2 = JSON.stringify(listaC, null, '\t');
         $('#res2').text(out2);
 
-        var out3 = JSON.stringify(lang,null,'\t');
+        var out3 = JSON.stringify(lang, null, '\t');
         $('#res3').text(out3);
     }
 
 
-    $("#cargar").on('click',function(){
-        var url=$("#url").val();
-    console.log(url)
-    APP.net.peticion(url, true,null, parsearCSV);
+    $("#cargar").on('click', function () {
+        var url = $("#url").val();
+        console.log(url)
+        APP.net.peticion(url, true, null, parsearCSV);
     });
 
 });

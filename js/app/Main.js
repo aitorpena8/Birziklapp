@@ -7,8 +7,10 @@ var bins = [];
 
 function init()
 {
-    mWidth   = window.innerWidth;
-    mHeight  = window.innerHeight;
+//    mWidth   = window.innerWidth;
+//    mHeight  = window.innerHeight;
+    mWidth = 1280;
+    mHeight = 720;
     if(!main)
         main = new Main();
 }
@@ -38,6 +40,8 @@ function Main()
 
     this.stage      = new PIXI.Stage(0xADD6AD, true);
     this.renderer   = PIXI.autoDetectRenderer(mWidth, mHeight, null);
+    this.renderer.view.style.width = window.innerWidth+"px";
+    this.renderer.view.style.height = window.innerHeight+"px";
 
     document.body.appendChild(this.renderer.view);
 
