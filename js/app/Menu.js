@@ -19,18 +19,19 @@ function Menu()
     this.statisticsButton   = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/buttons/score_256.png"));
     this.helpButton         = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/buttons/help_256.png"));
 
-    if(mHeight >= 512)
-        this.startButton.scale.x = this.startButton.scale.y = this.statisticsButton.scale.x = this.statisticsButton.scale.y = this.helpButton.scale.x = this.helpButton.scale.y = 0.8;
-    else
+    this.startButton.anchor.x = this.startButton.anchor.y = this.statisticsButton.anchor.x = this.statisticsButton.anchor.y = this.helpButton.anchor.x = this.helpButton.anchor.y = 0.5;
+
+    this.startButton.scale.x = this.startButton.scale.y = this.statisticsButton.scale.x = this.statisticsButton.scale.y = this.helpButton.scale.x = this.helpButton.scale.y = 0.8;
+
+    if(mHeight < 768)
         this.startButton.scale.x = this.startButton.scale.y = this.statisticsButton.scale.x = this.statisticsButton.scale.y = this.helpButton.scale.x = this.helpButton.scale.y = 0.4;
 
-    this.startButton.position.x      = x + this.startButton.width / 2;
+    this.startButton.position.x      = mWidth / 2;
     this.startButton.position.y      = y;
-    this.statisticsButton.position.x = x;
+    this.statisticsButton.position.x = mWidth / 2 - this.statisticsButton.width;
     this.statisticsButton.position.y = y + (height + offset) * 2;
-    this.helpButton.position.x       = x + this.helpButton.width;
+    this.helpButton.position.x       = mWidth / 2 + this.helpButton.width;
     this.helpButton.position.y       = y + (height + offset) * 2;
-
 
     this.startButton.buttonMode  = this.statisticsButton.buttonMode  = this.helpButton.buttonMode  = true;
     this.startButton.interactive = this.statisticsButton.interactive = this.helpButton.interactive = true;

@@ -18,8 +18,8 @@ function Trash(imageSource, x, y, id)
     this.id = id;
 
     this.scale.y = this.scale.x = this.initialScale = 0.4;
-    if(mHeight >= 512)
-        this.scale.y = this.scale.x = this.initialScale = 0.2;
+    if(mHeight <= 768)
+        this.initialScale = this.scale.y = this.scale.x = 0.2;
 }
 
 Trash.constructor = Trash;
@@ -62,27 +62,28 @@ Trash.prototype.mouseup = Trash.prototype.mouseupoutside = Trash.prototype.touch
     this.dragging = false;
     // set the interaction data to null
     this.data = null;
-
-    //TODO: if this.x > window width < binscontainer offset
-    for(key in bins)
+    if(this.position.x >= main.game.bins.position.x)
     {
-        if(COLLIDER.checkCollision(this, bins[key]))
+        for(index in bins)
         {
-            main.game.timer.resetTimer();
-            //TODO: create new trash, set it at initial position and add score
-            this.position.x = this.initialX;
-            this.position.y = this.initialY;
+            if(COLLIDER.checkCollision(this, bins[index]))
+            {
+                main.game.timer.resetTimer();
+                //TODO: create new trash, set it at initial position and add score
+                this.position.x = this.initialX;
+                this.position.y = this.initialY;
 
-            main.game.addScore(1);
-            main.game.randomTrash();
+                main.game.addScore(1);
+                main.game.randomTrash();
 
-            return;
+                return;
+            }
         }
+        //TODO: Set at initial position and decrease life
+        main.game.addScore(-1);
     }
-    //TODO: Set at initial position and decrease life
-
+    //TODO: if this.x > window width < binscontainer offset
     this.position.x = this.initialX;
     this.position.y = this.initialY;
-    main.game.addScore(-1);
 
 };
