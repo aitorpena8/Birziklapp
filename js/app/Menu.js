@@ -2,46 +2,47 @@ function Menu()
 {
     PIXI.DisplayObjectContainer.call(this);
 
-    var width   = mWidth / 4;
-    var height  = mHeight / 8;
-    var x       = mWidth / 2 - width/2;
-    var y       = mHeight - mHeight / 2;
-    var offset  = mHeight / 100;
-
-    //TODO: Add the logo and the info and settings button
-
-    this.logo = new PIXI.Text("BirziklApp", {font: "bold italic " + mHeight / 6 + "px Arvo", fill: "#3e1707", align: "center", stroke: "#a4410e", strokeThickness: 7});
-    this.logo.position.x = (mWidth  - this.logo.width) / 2;
-    this.logo.position.y = mHeight / 100;
+    this.logo = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/title.png"));
+    this.logo.anchor.x = this.logo.anchor.y = 0.5;
+    this.logo.position.x = mWidth / 2;
+    this.logo.position.y = mHeight * 0.25;
 
 
     this.startButton        = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/buttons/play_256.png"));
     this.statisticsButton   = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/buttons/score_256.png"));
     this.helpButton         = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/buttons/help_256.png"));
+    this.infoButton         = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/buttons/info_128.png"));
+    this.optionsButton      = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/buttons/options_128.png"));
 
-    if(mHeight >= 512)
-        this.startButton.scale.x = this.startButton.scale.y = this.statisticsButton.scale.x = this.statisticsButton.scale.y = this.helpButton.scale.x = this.helpButton.scale.y = 0.8;
-    else
-        this.startButton.scale.x = this.startButton.scale.y = this.statisticsButton.scale.x = this.statisticsButton.scale.y = this.helpButton.scale.x = this.helpButton.scale.y = 0.4;
+    this.startButton.anchor = this.statisticsButton.anchor = this.helpButton.anchor = this.infoButton.anchor = this.optionsButton.anchor = new PIXI.Point(0.5, 0.5);
 
-    this.startButton.position.x      = x + this.startButton.width / 2;
-    this.startButton.position.y      = y;
-    this.statisticsButton.position.x = x;
-    this.statisticsButton.position.y = y + (height + offset) * 2;
-    this.helpButton.position.x       = x + this.helpButton.width;
-    this.helpButton.position.y       = y + (height + offset) * 2;
+    this.startButton.scale = new PIXI.Point(1,1);
+    this.statisticsButton.scale = this.helpButton.scale = new PIXI.Point(0.8,0.8);
+    this.infoButton.scale = this.optionsButton.scale = new PIXI.Point(0.5,0.5);
+
+    this.statisticsButton.position.x = mWidth * 0.25;
+    this.startButton.position.x      = mWidth * 0.5;
+    this.helpButton.position.x       = mWidth * 0.75;
+    this.infoButton.position.x       = mWidth * 0.075;
+    this.optionsButton.position.x    = mWidth * 0.925;
+    this.startButton.position.y = this.statisticsButton.position.y = this.helpButton.position.y = mHeight * 0.66;
+    this.infoButton.position.y = this.optionsButton.position.y = mHeight * 0.9;
 
 
-    this.startButton.buttonMode  = this.statisticsButton.buttonMode  = this.helpButton.buttonMode  = true;
-    this.startButton.interactive = this.statisticsButton.interactive = this.helpButton.interactive = true;
+    this.startButton.buttonMode  = this.statisticsButton.buttonMode  = this.helpButton.buttonMode  = this.infoButton.buttonMode  = this.optionsButton.buttonMode  = true;
+    this.startButton.interactive = this.statisticsButton.interactive = this.helpButton.interactive = this.infoButton.interactive = this.optionsButton.interactive = true;
 
     this.startButton.click      = this.startButton.tap      = this.play;
     this.statisticsButton.click = this.statisticsButton.tap = this.statistics;
     this.helpButton.click       = this.helpButton.tap       = this.help;
+    this.infoButton.click       = this.infoButton.tap       = this.info;
+    this.optionsButton.click    = this.optionsButton.tap    = this.options;
 
     this.addChild(this.startButton);
     this.addChild(this.statisticsButton);
     this.addChild(this.helpButton);
+    this.addChild(this.infoButton);
+    this.addChild(this.optionsButton);
 
     this.addChild(this.logo);
 }
@@ -63,6 +64,16 @@ Menu.prototype.statistics = function(data)
 Menu.prototype.help = function(data)
 {
     //TODO: Go to help
+};
+
+Menu.prototype.info = function(data)
+{
+    //TODO: Go to info popup
+};
+
+Menu.prototype.options = function(data)
+{
+    //TODO: Go to options
 };
 
 
