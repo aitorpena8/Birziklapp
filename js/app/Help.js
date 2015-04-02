@@ -45,18 +45,51 @@ $(document).ready(function () {
 
     }
 
+
+    function getImgURL(container) {
+
+        var imgPrefix = "../resources/images/sprites/containers/";
+        var imgSub = "_256.png"
+
+        var color;
+
+        switch (container) {
+        case "vidrio":
+            color = "green";
+            break;
+        case "contenedor_de_organico":
+            color = "brown";
+            break;
+
+
+        case "papel_y_carton":
+            var color = "blue";
+            break;
+
+
+        case "plastico":
+            color = "yellow";
+            break;
+
+        default:
+            color = "default";
+        }
+
+        var imgSrc = imgPrefix + color + imgSub;
+        return imgSrc;
+
+
+    }
+
     function fillSelect() {
             console.log("fill select");
             for (var container in APP.data.containerTrash) {
-
-
-
-                var $tr = $('<option/>', {
-                    html: APP.language.getText(container),
+                var $opt = $('<option/>', {
+                    html: "<img src='" + getImgURL(container) + "'/>",
                     value: container
                 });
 
-                $('#selectContainer').append($tr);
+                $('#selectContainer').append($opt);
             }
         }
         /*
@@ -94,16 +127,28 @@ $(document).ready(function () {
             if (trashi18nText && trashi18nText.indexOf(searchVal) !== -1 && (selCont === "0" || containers.indexOf(selCont) !== -1)) {
                 var containersText = '';
                 var n = 0
-                for (var i in containers) {
-                    var container = containers[i];
-                    var str = APP.language.getText(container);
-                    if (n === 0)
-                        containersText += str;
-                    else {
-                        containersText += ',' + str;
 
-                    }
-                    n++;
+                for (var i in containers) {
+                    var img;
+                    var container = containers[i];
+
+                    var str = APP.language.getText(container);
+
+                    img = "<img src='" + getImgURL(container) + "' title='" + str + "'/>";
+                    containersText += img;
+
+                    /*
+                        if (n === 0){
+                            containersText += str;
+
+
+                        }
+                        else {
+                            containersText += ',' + str;
+
+                        }
+                        n++;
+                        */
 
                 }
                 trashi18nTextArr.push(trashi18nText);
@@ -159,13 +204,13 @@ $(document).ready(function () {
 
 
     $('#alpIndex ul li a').on('click', function () {
-            $('#alpIndex ul li a').each(function (idx, el) {
-                if ($(el).hasClass('current')) {
-                    $(el).removeClass('current');
-                }
+        $('#alpIndex ul li a').each(function (idx, el) {
+            if ($(el).hasClass('current')) {
+                $(el).removeClass('current');
+            }
 
-            });
-            $(this).addClass('current');
+        });
+        $(this).addClass('current');
     });
 
 
