@@ -42,7 +42,7 @@ $(document).ready(function () {
 
         var values;
         var n = 0;
-       // var cont = 0;
+        var cont = 0;
 
         for (var i = 0; i < lines.length; i++) {
 
@@ -54,7 +54,7 @@ $(document).ready(function () {
             if (values.length > 1 && values[0] !== "") {
                 var trash = values[0].trim();
                 var trashN = normalizeString(values[0]);
-                if (trashN != "") {
+                if (trashN !== "") {
                     lang[trashN] = trash;
                     var elemento = {};
                     // elemento["trash"] = trash;
@@ -67,12 +67,12 @@ $(document).ready(function () {
                             if (!listaC[containerN]) {
                                 listaC[containerN] = [];
                                 lang[containerN] = containersArr[c];
-                               // cont = 0;
+                                cont = 0;
                             }
 
-                           // if (cont < 10 && rand < 0.5) {
+                            if (cont < 5 && rand < 0.5) {
                                 listaC[containerN].push(trashN);
-                            //}
+                            }
 
                         }
                     }
@@ -83,10 +83,10 @@ $(document).ready(function () {
                             lang[trashN + "_expl"] = expl;
                         }
                     }
-                    //if (cont < 10 && rand < 0.5) {
+                    if (cont < 10 && rand < 0.5) {
                         lista[trashN] = elemento;
-                      /*  cont++;
-                    }*/
+                        cont++;
+                    }
 
                     n++;
 
@@ -113,7 +113,7 @@ $(document).ready(function () {
 
     $("#cargar").on('click', function () {
         var url = $("#url").val();
-        console.log(url)
+        console.log(url);
         APP.net.peticion(url, true, null, parsearCSV);
     });
 
