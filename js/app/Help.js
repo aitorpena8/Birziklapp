@@ -1,8 +1,42 @@
-var APP = APP || {};
 $(document).ready(function () {
     "use strict";
     var searchVal = "";
     var selCont = "0";
+
+    var parseTrashContainer = function () {
+        var dat = net.req.responseText;
+        if (dat) {
+            var obj = JSON.parse(dat);
+            data.trashContainer = obj;
+        }
+    };
+
+
+    var parseContainerTrash = function () {
+        var dat = net.req.responseText;
+        if (dat) {
+            var obj = JSON.parse(dat);
+            data.containerTrash = obj;
+        }
+    };
+
+    var config = new Config();
+    var net = new Net();
+
+    var data = new Data(config, net, parseTrashContainer, parseContainerTrash);
+
+
+    var parseLanguage = function () {
+        var dat = net.req.responseText;
+        if (dat) {
+            var txt = JSON.parse(dat);
+            language.setLanguageText(txt);
+        }
+    };
+
+    var language = new Language(config, net, parseLanguage);
+    data.load();
+    language.load();
 
     var trashi18nTextArr = [];
 
@@ -83,10 +117,10 @@ $(document).ready(function () {
 
     function fillSelect() {
             console.log("fill select");
-            for (var container in APP.data.containerTrash) {
+            for (var container in data.containerTrash) {
                 var $opt = $('<option/>', {
-                    html: "<img src='" + getImgURL(container) + "'/>",
-                    value: container
+                    html: language.getText(container),//"<img src='" + getImgURL(container) + "'/>",
+                    value: container,
                 });
 
                 $('#selectContainer').append($opt);
@@ -120,10 +154,10 @@ $(document).ready(function () {
         console.log("fill table searchVal:" + searchVal);
         var currentLetter, oldLetter = '';
         var c = 1;
-        for (var trash in APP.data.trashContainer) {
+        for (var trash in data.trashContainer) {
             currentLetter = trash[0];
-            var trashi18nText = APP.language.getText(trash);
-            var containers = APP.data.trashContainer[trash].containers;
+            var trashi18nText = language.getText(trash);
+            var containers = data.trashContainer[trash].containers;
             if (trashi18nText && trashi18nText.indexOf(searchVal) !== -1 && (selCont === "0" || containers.indexOf(selCont) !== -1)) {
                 var containersText = '';
                 var n = 0
@@ -132,9 +166,9 @@ $(document).ready(function () {
                     var img;
                     var container = containers[i];
 
-                    var str = APP.language.getText(container);
+                    var str = language.getText(container);
 
-                    img = "<img src='" + getImgURL(container) + "' title='" + str + "'/>";
+                    img = "<img  class='containerIcon' src='" + getImgURL(container) + "' title='" + str + "'/>";
                     containersText += img;
 
                     /*
@@ -152,9 +186,20 @@ $(document).ready(function () {
 
                 }
                 trashi18nTextArr.push(trashi18nText);
-                var $tr = $('<tr/>', {
-                    html: '<td>' + trashi18nText + '</td><td>' + containersText + '</td>'
+                var $tr = $('<tr/>', {});
+
+                var $td1 = $('<td/>', {
+                    html: trashi18nText
+
                 });
+
+                var $td2 = $('<td/>', {
+                    html: containersText,
+                    class: 'center'
+
+                });
+
+
 
                 if (c % 2 == 0) {
                     $tr.addClass('even');
@@ -170,9 +215,14 @@ $(document).ready(function () {
                         id: currentLetter + 'Ind',
 
                     });
-                    $tr.append($a);
+
+                    $td1.append($a);
+                    //$tr.append($a);
                     oldLetter = currentLetter;
                 }
+
+                $tr.append($td1);
+                $tr.append($td2);
                 $('#tableTrash').append($tr);
                 c++;
             }

@@ -4,7 +4,9 @@
 }
 
 #wrapper {
-    width: 90%;
+    //width: 90%;
+    width: 900px;
+    height: 720;
     margin: 20px auto;
 }
 
@@ -94,7 +96,7 @@ input[type=reset] {
     width: 80%;
     margin-left: 12%;
     margin-top: 10px;
-    float: left;
+  //  float: left;
 }
 
 #tableTrash {
@@ -115,4 +117,12 @@ input[type=reset] {
 
 #tableTrash tbody tr.even {
     background-color: #c3f3dc;
+}
+
+img.containerIcon {
+    width: 80px;
+}
+
+td.center {
+    text-align: center;
 }

@@ -1,19 +1,22 @@
-function Language() {
+function Language(conf,net,func) {
     this.code = navigator.language;
+    this.config=conf;
     console.log("navigator.language: " + this.code);
     this.text = {};
+    this.net=net;
+    this.parseFunc=func;
 }
 Language.constructor = Language;
 var loadDefaultLanguage = function (jqXHR, status, error) {
-    this.setCode(main.config.defaultLanguage);
-    var url = main.config.getLanguageFileURL(this.code);
+    this.setCode(this.config.defaultLanguage);
+    var url = this.config.getLanguageFileURL(this.code);
     main.net.request(url, false, parseLanguage, null);
 };
 
 
 Language.prototype.load = function () {
-    var url = main.config.getLanguageFileURL(this.code);
-    main.net.request(url, false, parseLanguage, loadDefaultLanguage);
+    var url = this.config.getLanguageFileURL(this.code);
+    this.net.request(url, false, this.parseFunc, loadDefaultLanguage);
 
 };
 
