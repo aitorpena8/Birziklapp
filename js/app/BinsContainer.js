@@ -6,7 +6,7 @@ function BinsContainer(x, y, width, height)
     this.width          = width;
     this.height         = height;
 
-    var offset = mHeight / 100;
+    var offset = 0;
 
     this.yellow  = new Bin(0, offset, "resources/images/sprites/containers/yellow_256.png", RecycleBins.YELLOW);
     this.blue    = new Bin(0, height/5 + offset, "resources/images/sprites/containers/blue_256.png", RecycleBins.BLUE);
