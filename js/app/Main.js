@@ -14,8 +14,8 @@ function init() {
 
     //    mWidth   = window.innerWidth;
     //    mHeight  = window.innerHeight;
-    mWidth = 1280;
-    mHeight = 720;
+    mWidth = 800;
+    mHeight = 480;
     if (!main) {
         main = new Main();
         main.loadData();

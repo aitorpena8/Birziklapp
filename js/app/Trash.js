@@ -16,9 +16,7 @@ function Trash(imageSource, x, y, id) {
 
     this.id = id;
 
-    this.scale.y = this.scale.x = this.initialScale = 0.4;
-    if (mHeight <= 768)
-        this.initialScale = this.scale.y = this.scale.x = 0.2;
+    this.initialScale = this.scale.y = this.scale.x = 10;
 }
 
 Trash.constructor = Trash;
