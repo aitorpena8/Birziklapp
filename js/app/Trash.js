@@ -16,7 +16,7 @@ function Trash(imageSource, x, y, id) {
 
     this.id = id;
 
-    this.initialScale = this.scale.y = this.scale.x = 10;
+    this.initialScale = this.scale.y = this.scale.x = 0.5;
 }
 
 Trash.constructor = Trash;

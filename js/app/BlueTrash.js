@@ -2,6 +2,19 @@
 
 function BlueTrash(x, y)
 {
+    this.blue =
+    [
+        "bloc.png",
+        "boleto.png",
+        "chequera.png",
+        "clasificador.png",
+        "comic.png",
+        "cuaderno.png",
+        "diccionario.png",
+        "factura.png",
+        "guia_telefonica.png"
+    ];
+
     this.textureSource = this.createRandomTexture();
     Trash.call(this, this.textureSource, x, y, RecycleBins.BLUE);
 }
@@ -13,9 +26,15 @@ BlueTrash.prototype.createRandomTexture = function()
 {
     var myItems = this.getElements();
 
-    //TODO: Create the algorithm
+     //FIXME: ñapa ñapa ñapa ñapa ñapa ñapa ñapa ñapa
+    var path = "resources/images/sprites/trash/papel_y_carton/";
 
-    return "resources/images/sprites/trash/blue.png";
+
+    var index = Math.floor(Math.random() * this.blue.length);
+
+    var URI = path + this.blue[index];
+
+    return URI;
 };
 
 BlueTrash.prototype.getElements = function()

@@ -3,7 +3,7 @@
 var timerCount = 0;
 function Timer(x, y)
 {
-    timerCount = 5;
+    timerCount = 3;
     PIXI.Text.call(this, timerCount, {font: "bold italic " + mHeight / 6 + "px Arvo", fill: "#3e1707", align: "center", stroke: "#a4410e", strokeThickness: 7});
     this.position.x = x;
     this.position.y = y;
@@ -17,7 +17,7 @@ Timer.prototype = Object.create(PIXI.Text.prototype);
 
 Timer.prototype.resetTimer = function()
 {
-    timerCount = 6;
+    timerCount = 4;
 };
 
 Timer.prototype.decreaseSeconds = function(ctx)

@@ -12,8 +12,8 @@ function init() {
 
     "use strict";
 
-    //    mWidth   = window.innerWidth;
-    //    mHeight  = window.innerHeight;
+        //mWidth   = window.innerWidth;
+        //mHeight  = window.innerHeight;
     mWidth = 800;
     mHeight = 480;
     if (!main) {

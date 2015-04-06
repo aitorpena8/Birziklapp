@@ -2,6 +2,17 @@
 
 function DefaultTrash(x, y)
 {
+    this.default =
+    [
+        "abrecartas.png",
+        "abrelatas.png",
+        "aguja.png",
+        "aletas.png",
+        "algodon.png",
+        "alicates.png",
+        "antena.png",
+        "baston.png"
+    ];
     this.textureSource = this.createRandomTexture();
     Trash.call(this, this.textureSource, x, y, RecycleBins.DEFAULT);
 }
@@ -11,8 +22,15 @@ DefaultTrash.prototype = Object.create(Trash.prototype);
 
 DefaultTrash.prototype.createRandomTexture = function()
 {
-    //TODO: Create the algorithm
-    return "resources/images/sprites/trash/default.png";
+     //FIXME: ñapa ñapa ñapa ñapa ñapa ñapa ñapa ñapa
+    var path = "resources/images/sprites/trash/rechazo/";
+
+
+    var index = Math.floor(Math.random() * this.default.length);
+
+    var URI = path + this.default[index];
+
+    return URI;
 };
 
 DefaultTrash.prototype.getElements = function()
