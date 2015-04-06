@@ -63,15 +63,16 @@ Trash.prototype.mouseup = Trash.prototype.mouseupoutside = Trash.prototype.touch
                 //TODO: create new trash, set it at initial position and add score
                 this.position.x = this.initialX;
                 this.position.y = this.initialY;
-                main.game.addFail();
+                // main.game.addFail();
                 main.game.addScore(1);
                 main.game.randomTrash();
 
                 return;
-            } else {
+            }
+            /*} else {
                 main.game.addSuccess();
 
-            }
+            }*/
         }
         //TODO: Set at initial position and decrease life
         main.game.addScore(-1);

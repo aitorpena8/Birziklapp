@@ -28,7 +28,8 @@ var GameStatus = {
     GAME_OVER: 0,
     MENU: 1,
     GAME_ONE: 2,
-    GAME_TWO: 3
+    GAME_TWO: 3,
+    INFO:4
 };
 
 var RecycleBins = {
@@ -93,12 +94,14 @@ function Main() {
         this.menu = new Menu();
     }
     if (!this.language) {
-        this.language = new Language(this.config,this.net,parseLanguage);
+        this.language = new Language(this.config, this.net, parseLanguage);
 
     }
     if (!this.data) {
-        this.data = new Data(this.config,this.net,parseTrashContainer,parseContainerTrash);
+        this.data = new Data(this.config, this.net, parseTrashContainer, parseContainerTrash);
     }
+    if (!this.info)
+        this.info= new Info();
 
     if (!this.game) {
         this.game = new Game();
@@ -134,11 +137,13 @@ Main.prototype.update = function () {
         this.menu.visible = true;
         this.game.visible = false;
         this.gameOver.visible = false;
+
         break;
     case GameStatus.GAME_ONE:
         this.menu.visible = false;
         this.game.visible = true;
         this.gameOver.visible = false;
+
         break;
     case GameStatus.GAME_TWO:
         // TODO: Fill if game two when it's done.
@@ -148,10 +153,20 @@ Main.prototype.update = function () {
         this.game.visible = false;
         this.gameOver.visible = true;
         break;
+
+    case GameStatus.INFO:
+
+        this.menu.visible = false;
+        this.game.visible = false;
+        this.gameOver.visible = false;
+        break;
+
+
     }
 
     this.renderer.render(this.stage);
     requestAnimFrame(this.update.bind(this));
 };
 
-window.onload = init;
+//window.onload = init;
+document.onready=init;

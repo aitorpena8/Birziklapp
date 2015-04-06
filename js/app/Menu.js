@@ -72,7 +72,7 @@ Menu.prototype.help = function(data)
 
 Menu.prototype.info = function(data)
 {
-    //TODO: Go to info popup
+    main.info.load();
 };
 
 Menu.prototype.options = function(data)
