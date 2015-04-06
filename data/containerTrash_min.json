@@ -1,7 +1,3 @@
-var APP = APP || {};
-APP.data = APP.data || {};
-APP.data.containerTrash={};
-APP.data.containerTrash =
 {
 	"contenedor_de_organico": [
 		"achicoria",

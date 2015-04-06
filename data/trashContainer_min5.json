@@ -1,0 +1,108 @@
+{
+    "alpiste": {
+        "containers": [
+   "contenedor_de_organico"
+  ]
+    },
+    "caramelos": {
+        "containers": [
+   "contenedor_de_organico"
+  ]
+    },
+    "carne": {
+        "containers": [
+   "contenedor_de_organico"
+  ]
+    },
+    "cereales": {
+        "containers": [
+   "contenedor_de_organico"
+  ]
+    },
+    "embutido": {
+        "containers": [
+   "contenedor_de_organico"
+  ]
+    },
+    "agenda": {
+        "containers": [
+   "papel_y_carton"
+  ]
+    },
+    "antifaz_de_papel": {
+        "containers": [
+   "papel_y_carton"
+  ]
+    },
+    "archivador": {
+        "containers": [
+   "papel_y_carton"
+  ]
+    },
+    "bandeja_de_carton": {
+        "containers": [
+   "papel_y_carton"
+  ]
+    },
+    "baraja_de_cartas": {
+        "containers": [
+   "papel_y_carton"
+  ]
+    },
+    "agua_oxigenada": {
+        "containers": [
+   "plastico"
+  ]
+    },
+    "alcohol_de_quemar": {
+        "containers": [
+   "plastico"
+  ]
+    },
+    "bandeja_de_porexpan": {
+        "containers": [
+   "plastico"
+  ]
+    },
+    "bolsa_de_alimentos": {
+        "containers": [
+   "plastico"
+  ]
+    },
+    "bolsa_de_aperitivos": {
+        "containers": [
+   "plastico"
+  ]
+    },
+    "abanico": {
+        "containers": [
+   "rechazo"
+  ]
+    },
+    "abre_botellas": {
+        "containers": [
+   "rechazo"
+  ]
+    },
+    "abrelatas": {
+        "containers": [
+   "rechazo"
+  ]
+    },
+    "aceitera": {
+        "containers": [
+   "rechazo"
+  ]
+    },
+    "acetato": {
+        "containers": [
+   "rechazo"
+  ]
+    },
+
+    "botella_de_vidrio": {
+        "containers": [
+   "vidrio"
+  ]
+    }
+}

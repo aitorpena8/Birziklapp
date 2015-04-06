@@ -1,0 +1,33 @@
+{
+    "contenedor_de_organico": [
+  "alpiste",
+  "caramelos",
+  "carne",
+  "cereales",
+  "embutido"
+ ],
+    "papel_y_carton": [
+  "agenda",
+  "antifaz_de_papel",
+  "archivador",
+  "bandeja_de_carton",
+  "baraja_de_cartas"
+ ],
+    "plastico": [
+  "agua_oxigenada",
+  "alcohol_de_quemar",
+  "bandeja_de_porexpan",
+  "bolsa_de_alimentos",
+  "bolsa_de_aperitivos"
+ ],
+    "rechazo": [
+  "abanico",
+  "abre_botellas",
+  "abrelatas",
+  "aceitera",
+  "acetato"
+ ],
+    "vidrio": [
+        "botella_de_vidrio"
+    ]
+}

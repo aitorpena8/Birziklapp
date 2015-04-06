@@ -1,5 +1,7 @@
 var APP = APP || {};
 
+var num=0;
+
 $(document).ready(function () {
     "use strict";
 
@@ -33,7 +35,9 @@ $(document).ready(function () {
     }
 
 
-    function parsearCSV(datos) {
+    function parsearCSV() {
+
+        var datos=APP.net.req.responseText;
 
         var lines = datos.split('\n');
         var lista = {},
@@ -70,7 +74,7 @@ $(document).ready(function () {
                                 cont = 0;
                             }
 
-                            if (cont < 5 && rand < 0.5) {
+                            if (num==0 ||(cont < num && rand < 0.5)) {
                                 listaC[containerN].push(trashN);
                             }
 
@@ -83,7 +87,7 @@ $(document).ready(function () {
                             lang[trashN + "_expl"] = expl;
                         }
                     }
-                    if (cont < 10 && rand < 0.5) {
+                    if ( num==0 || cont < num && rand < 0.5) {
                         lista[trashN] = elemento;
                         cont++;
                     }
@@ -114,7 +118,9 @@ $(document).ready(function () {
     $("#cargar").on('click', function () {
         var url = $("#url").val();
         console.log(url);
-        APP.net.peticion(url, true, null, parsearCSV);
+        if(!APP.net)
+            APP.net=new Net();
+        APP.net.request(url, true,  parsearCSV,null);
     });
 
 });
