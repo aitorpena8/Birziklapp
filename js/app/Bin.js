@@ -6,10 +6,7 @@ function Bin(x, y, imageSource, id)
     this.position.y = y;
     this.id         = id;
 
-    if(mHeight >= 512)
-        this.scale.x = this.scale.y = 0.4;
-    else
-        this.scale.x = this.scale.y = 0.2;
+    this.scale.set(0.4,0.4);
 
     bins.push(this);
 }
