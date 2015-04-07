@@ -12,10 +12,10 @@ function init() {
 
     "use strict";
 
-        //mWidth   = window.innerWidth;
-        //mHeight  = window.innerHeight;
-    mWidth = 800;
-    mHeight = 480;
+    //    mWidth   = window.innerWidth;
+    //    mHeight  = window.innerHeight;
+    mWidth = 1280;
+    mHeight = 720;
     if (!main) {
         main = new Main();
         main.loadData();
@@ -122,7 +122,7 @@ Main.prototype.loadData = function () {
     this.language.load();
     this.data.load();
 
-}
+};
 
 
 

@@ -7,16 +7,16 @@ function Language(conf,net,func) {
     this.parseFunc=func;
 }
 Language.constructor = Language;
-var loadDefaultLanguage = function (jqXHR, status, error) {
+Language.prototype.loadDefaultLanguage = function (jqXHR, status, error) {
     this.setCode(this.config.defaultLanguage);
     var url = this.config.getLanguageFileURL(this.code);
-    main.net.request(url, false, parseLanguage, null);
+    this.net.request(url, false, parseLanguage, null);
 };
 
 
 Language.prototype.load = function () {
     var url = this.config.getLanguageFileURL(this.code);
-    this.net.request(url, false, this.parseFunc, loadDefaultLanguage);
+    this.net.request(url, false, this.parseFunc, null);
 
 };
 

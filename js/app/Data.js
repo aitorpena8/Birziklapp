@@ -16,4 +16,4 @@ Data.prototype.load = function () {
     var containerTrashURL = this.config.getContainerTrashFileURL();
     this.net.request(trashContainerURL, false, this.parseFunc1, null);
     this.net.request(containerTrashURL, false, this.parseFunc2, null);
-}
+};

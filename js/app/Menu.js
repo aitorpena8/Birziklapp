@@ -75,12 +75,14 @@ Menu.prototype.statistics = function(data)
 
 Menu.prototype.help = function(data)
 {
-    document.location.href = "html/help.html";
+   // document.location.href = "html/help.html";
+
+     main.info.load();
 };
 
 Menu.prototype.info = function(data)
 {
-    main.info.load();
+
 };
 
 Menu.prototype.options = function(data)

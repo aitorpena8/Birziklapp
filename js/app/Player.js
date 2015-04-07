@@ -6,7 +6,7 @@ Player.prototype.init = function () {
     this.history = {};
     this.playNumb = 0;
     this.highScore = -1;
-}
+};
 
 
 Player.prototype.addResult=function(res){
@@ -15,4 +15,4 @@ Player.prototype.addResult=function(res){
 
 
 
-}
+};
