@@ -1,6 +1,6 @@
 var timeout=5;
 var dataURLPrefix='data/';
-var trashContainerFileName='trashContainer_min5.json';
+var trashContainerFileName='trashContainer_min.json';
 var containerTrashFileName='containerTrash_min.json';
 var languageFilePrefix='language';
 var defaultLanguage='es';
