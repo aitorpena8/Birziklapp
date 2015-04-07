@@ -75,7 +75,7 @@ Menu.prototype.statistics = function(data)
 
 Menu.prototype.help = function(data)
 {
-    //TODO: Go to help
+    document.location.href = "html/help.html";
 };
 
 Menu.prototype.info = function(data)

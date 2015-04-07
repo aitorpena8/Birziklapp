@@ -32,6 +32,7 @@ GameOver.prototype.setScore = function(score)
 
 GameOver.prototype.restart = function()
 {
+    main.game.resetScore();
     gameStatus = GameStatus.GAME_ONE;
 };
 
