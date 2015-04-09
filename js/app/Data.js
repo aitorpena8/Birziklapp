@@ -14,6 +14,7 @@ Data.constructor = Data;
 Data.prototype.load = function () {
     var trashContainerURL = this.config.getTrashContainerFileURL();
     var containerTrashURL = this.config.getContainerTrashFileURL();
-    this.net.request(trashContainerURL, false, this.parseFunc1, null);
-    this.net.request(containerTrashURL, false, this.parseFunc2, null);
+    this.net.request(trashContainerURL, false, this.parseFunc1, errData);
+    this.net.request(containerTrashURL, false, this.parseFunc2, errData);
+
 };

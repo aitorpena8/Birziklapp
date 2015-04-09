@@ -43,6 +43,15 @@ var RecycleBins = {
 
 
 
+function errLang () {
+        console.log("Error Language loading data" + "\n\nreadyState:" + this.req.readyState + "\nstatus: " + this.req.status + "\nheaders: " + this.req.getAllResponseHeaders());
+    }
+
+
+function errData () {
+        console.log("Error DB  data" + "\n\nreadyState:" + this.req.readyState + "\nstatus: " + this.req.status + "\nheaders: " + this.req.getAllResponseHeaders());
+    }
+
 var parseLanguage = function () {
     var dat = main.net.req.responseText;
     if (dat) {
