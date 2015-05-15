@@ -16,9 +16,9 @@ function Menu()
     this.infoButton         = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/buttons/info_128.png"));
     this.optionsButton      = new PIXI.Sprite(PIXI.Texture.fromImage("resources/images/sprites/buttons/options_128.png"));
 
-    this.startButtonText      = new PIXI.Text("PLAY!", textStyle);
-    this.statisticsButtonText = new PIXI.Text("SCORE", textStyle);
-    this.helpButtonText       = new PIXI.Text("HELP", textStyle);
+    this.startButtonText      = new PIXI.Text(main.language.getText("jugar"), textStyle);
+    this.statisticsButtonText = new PIXI.Text(main.language.getText("puntos"), textStyle);
+    this.helpButtonText       = new PIXI.Text(main.language.getText("ayuda"), textStyle);
 
     this.startButton.anchor = this.statisticsButton.anchor = this.helpButton.anchor = this.infoButton.anchor = this.optionsButton.anchor = new PIXI.Point(0.5, 0.5);
     this.startButtonText.anchor = this.statisticsButtonText.anchor = this.helpButtonText.anchor = new PIXI.Point(0.5,0.25);

@@ -29,7 +29,7 @@ var GameStatus = {
     MENU: 1,
     GAME_ONE: 2,
     GAME_TWO: 3,
-    INFO:4
+    INFO: 4
 };
 
 var RecycleBins = {
@@ -41,41 +41,14 @@ var RecycleBins = {
 };
 
 
+var loaded;
 
 
-function errLang () {
-        console.log("Error Language loading data" + "\n\nreadyState:" + this.req.readyState + "\nstatus: " + this.req.status + "\nheaders: " + this.req.getAllResponseHeaders());
-    }
 
 
-function errData () {
-        console.log("Error DB  data" + "\n\nreadyState:" + this.req.readyState + "\nstatus: " + this.req.status + "\nheaders: " + this.req.getAllResponseHeaders());
-    }
-
-var parseLanguage = function () {
-    var dat = main.net.req.responseText;
-    if (dat) {
-        var txt = JSON.parse(dat);
-        main.language.setLanguageText(txt);
-    }
-};
-
-var parseTrashContainer = function () {
-    var dat = main.net.req.responseText;
-    if (dat) {
-        var obj = JSON.parse(dat);
-        main.data.trashContainer = obj;
-    }
-};
 
 
-var parseContainerTrash = function () {
-    var dat = main.net.req.responseText;
-    if (dat) {
-        var obj = JSON.parse(dat);
-        main.data.containerTrash = obj;
-    }
-};
+
 
 
 function Main() {
@@ -99,18 +72,16 @@ function Main() {
     if (!this.config) {
         this.config = new Config();
     }
-    if (!this.menu) {
-        this.menu = new Menu();
-    }
+
     if (!this.language) {
-        this.language = new Language(this.config, this.net, parseLanguage);
+        this.language = new Language(this.config, this.net);
 
     }
     if (!this.data) {
-        this.data = new Data(this.config, this.net, parseTrashContainer, parseContainerTrash);
+        this.data = new Data(this.config, this.net);
     }
     if (!this.info)
-        this.info= new Info();
+        this.info = new Info();
 
     if (!this.game) {
         this.game = new Game();
@@ -119,17 +90,32 @@ function Main() {
         this.gameOver = new GameOver();
     }
 
-    this.stage.addChild(this.menu);
+
     this.stage.addChild(this.game);
     this.stage.addChild(this.gameOver);
 
-    requestAnimFrame(this.update.bind(this));
+
 }
 
 
 Main.prototype.loadData = function () {
+  /*  loaded = 0;*/
     this.language.load();
     this.data.load();
+/*
+    while (loaded < 3) {
+        console.log(loaded)
+    }
+*/
+
+    if (!this.menu)
+        this.menu = new Menu();
+    this.stage.addChild(this.menu);
+
+    requestAnimFrame(this.update.bind(this));
+
+
+
 
 };
 
@@ -178,4 +164,4 @@ Main.prototype.update = function () {
 };
 
 //window.onload = init;
-document.onready=init;
+document.onready = init;

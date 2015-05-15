@@ -108,7 +108,7 @@ input[type=reset] {
 }
 
 #tableTrash tbody tr td {
-    padding: 1% 5%;
+    padding: 1% 1%;
 }
 
 #tableTrash tbody tr.odd {
